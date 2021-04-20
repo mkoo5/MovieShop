@@ -8,7 +8,6 @@
       <!-- Movie Card row -->
       <div>
         <img src="{{ movie?.posterUrl }}"
-             alt="{{ movie?.title }}"
              class="card-img-top" />
       </div>
 
@@ -31,9 +30,8 @@
         </div>
         <div class="col-8">
           <ng-container *ngFor="let g of movie?.genres">
-            <a href="#"
-               *ngIf="g"
-               [routerLink]="['/movies/genres/', g?.id ]"
+            <a *ngIf="g"
+               [routerLink]="['/movies/genre/', g?.id ]"
                class="badge badge-pill badge-dark ml-1"> {{g?.name}}</a>
           </ng-container>
         </div>
@@ -42,7 +40,7 @@
       <div class="row">
         <div class="col-4 mt-3">
           <h4>
-            <span *ngIf="movie!.rating > 0"
+            <span *ngIf="movie != null && movie.rating > 0"
                   class="badge badge-warning">
               {{movie?.rating | number:'1.1-1'}}
             </span>
@@ -91,7 +89,7 @@
 
           <a href="{{movie?.imdbUrl}}"
              class="text-dark ml-3"
-             target="_blank"> <i class="fas fa-share-square mr-2"></i> </a>
+             target="_blank"> Imdb Link <i class="fas fa-share-square mr-2"></i> </a>
         </li>
 
       </ul>
