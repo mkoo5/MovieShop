@@ -29,7 +29,7 @@ namespace MovieShop.MVC.Controllers
         public async Task<IActionResult> Register(UserRegisterRequestModel model)
         {
             var user = await _userService.RegisterUser(model);
-            return View();
+            return View("Login");
         }
 
         [HttpGet]
