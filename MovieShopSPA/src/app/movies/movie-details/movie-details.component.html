@@ -1,4 +1,4 @@
-<div class="bg-image"
+<div class="bg-image" *ngIf="movie"
      [style.backgroundImage]="'url('+ movie?.backdropUrl +')'">
 
   <div class="row">
@@ -40,7 +40,7 @@
       <div class="row">
         <div class="col-4 mt-3">
           <h4>
-            <span *ngIf="movie != null && movie.rating > 0"
+            <span *ngIf="movie != null && movie!.rating > 0"
                   class="badge badge-warning">
               {{movie?.rating | number:'1.1-1'}}
             </span>
@@ -113,6 +113,8 @@
       </table>
 
     </div>
+
+
   </div>
 
 </div>

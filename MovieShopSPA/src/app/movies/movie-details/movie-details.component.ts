@@ -14,7 +14,7 @@ export class MovieDetailsComponent implements OnInit {
   id: number | undefined;
   constructor(private movieService: MovieService, private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.route.paramMap.subscribe(
       params => {
         this.id = Number(params.get('id'));
